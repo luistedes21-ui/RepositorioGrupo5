@@ -34,6 +34,7 @@ public class PsicologoServicioImpl implements iPsicologoService, Serializable {
 
 	@Override
 	@Transactional
+	// Prueba de Github
 	public void eliminar(int idPsicologo) {
 		mD.eliminar(idPsicologo);
 	}
