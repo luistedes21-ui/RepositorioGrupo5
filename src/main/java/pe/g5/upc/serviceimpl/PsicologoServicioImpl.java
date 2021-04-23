@@ -7,7 +7,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import javax.transaction.Transactional;
 
 import pe.g5.upc.dao.iPsicologoDao;
 import pe.g5.upc.entity.Psicologo;
@@ -22,6 +22,7 @@ public class PsicologoServicioImpl implements iPsicologoService, Serializable {
 	private iPsicologoDao mD;
 	
 	@Override
+	@Transactional
 	public void insertar(Psicologo psicologo) {
 		mD.insertar(psicologo);
 	}
@@ -32,6 +33,8 @@ public class PsicologoServicioImpl implements iPsicologoService, Serializable {
 	}
 
 	@Override
+	@Transactional
+	// Prueba de Github
 	public void eliminar(int idPsicologo) {
 		mD.eliminar(idPsicologo);
 	}
