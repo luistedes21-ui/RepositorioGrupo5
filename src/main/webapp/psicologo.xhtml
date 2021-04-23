@@ -8,11 +8,11 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Pacientes:.
+        .:Registro de Psicólogos:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Paciente</span>
+		<span>Psicólogos</span>
 	</ui:define>
 
 	<ui:define name="content">
@@ -37,23 +37,18 @@
 				value="#{psicologoController.psicologo.codigoCPSP}" maxlength="35"
 				required="true" />
 				
-				<h:outputLabel for="especialidadPsicologo" value="Especialidad"
-				styleClass="control-label" />
-			<p:inputText autocomplete="off" id="especialidadPsicologo"
-				styleClass="form-control"
-				value="#{psicologoController.psicologo.especialidadPsicologo}" maxlength="35"
-				required="true" />
+			
 				
 				<p:outputLabel for ="cboEspecialidad" value="Especialidad" />				
-				<p:selectOneMenu id="cboEspecialidad" value ="#{especialidadController.especialidad.psicologo}"
+				<p:selectOneMenu id="cboEspecialidad" value ="#{psicologoController.psicologo.especialidad}"
 			converter = "omnifaces.SelectItemsConverter">
-			<f:selectItems value="#{especialidadController.listaEspecialidades}" var ="d"
+			<f:selectItems value="#{psicologoController.listaEspecialidades}" var ="d"
 			itemLabel="#{d.nombreEspecialidad}" itemValue="#{d}" />		
 			</p:selectOneMenu>
 				
 
 			<p:commandButton value="Grabar"
-				actionListener="#{psicologoController.insertar()}"
+				actionListener="#{psicologoController.insertarPsicologo()}"
 				styleClass="btn btn-primary " update="@form"
 				action="listPsicologo?faces-redirect=true" />
 			<p:commandButton value="Cancelar"

@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,10 +22,6 @@ public class Especialidad implements Serializable{
 	private String nombreEspecialidad;
 
 	
-	@ManyToOne
-	@JoinColumn(name="idPsicologo ", nullable = true)
-	public Psicologo psicologo;
-
 
 	public Especialidad() {
 		super();
@@ -39,7 +33,6 @@ public class Especialidad implements Serializable{
 		super();
 		this.idEspecialidad = idEspecialidad;
 		this.nombreEspecialidad = nombreEspecialidad;
-		this.psicologo = psicologo;
 	}
 
 
@@ -63,14 +56,35 @@ public class Especialidad implements Serializable{
 	}
 
 
-	public Psicologo getPsicologo() {
-		return psicologo;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idEspecialidad;
+		result = prime * result + ((nombreEspecialidad == null) ? 0 : nombreEspecialidad.hashCode());
+		return result;
 	}
 
 
-	public void setPsicologo(Psicologo psicologo) {
-		this.psicologo = psicologo;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Especialidad other = (Especialidad) obj;
+		if (idEspecialidad != other.idEspecialidad)
+			return false;
+		if (nombreEspecialidad == null) {
+			if (other.nombreEspecialidad != null)
+				return false;
+		} else if (!nombreEspecialidad.equals(other.nombreEspecialidad))
+			return false;
+		return true;
 	}
+
 
 
 	

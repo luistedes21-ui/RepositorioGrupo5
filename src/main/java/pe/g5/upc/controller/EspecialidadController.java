@@ -19,36 +19,24 @@ import pe.g5.upc.service.iPsicologoService;
 public class EspecialidadController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@Inject
-	private iPsicologoService pService;
-	
 	
 	@Inject
 	private iEspecialidadService mService;
 	
 	private Especialidad especialidad;
-	private Psicologo psicologo;
 	
 	List<Especialidad>listaEspecialidades;
-	List<Psicologo>listaPsicologos;
 	
 	@PostConstruct
 	public void init() {
-		psicologo = new Psicologo();
-		especialidad = new Especialidad();
-		this.listaEspecialidades = new ArrayList<Especialidad>();
-		this.listaPsicologos= new ArrayList<Psicologo>();
-		this.listar();
-		listarEspecialidad();
+	this.listaEspecialidades = new ArrayList<Especialidad>();
+	this.especialidad = new Especialidad();
+	this.listar();
 	}
 	
 	public String nuevoEspecialidad() {
 		this.setEspecialidad(new Especialidad());
 		return "especialidad.xhtml";
-	}
-	public String nuevoPsicologo() {
-		this.setPsicologo(new Psicologo());
-		return "psicologo.xhtml";
 	}
 	
 	
@@ -58,11 +46,8 @@ public class EspecialidadController implements Serializable {
 	}
 	
 	public void listar() {
-		listaPsicologos = pService.listar();
+		listaEspecialidades = mService.listar();
 															
-	}
-	public void listarEspecialidad() {
-		listaEspecialidades = mService.listar()	;
 	}
 	
 	public void limpiarEspecialidad() {
@@ -71,16 +56,14 @@ public class EspecialidadController implements Serializable {
 	
 	public void eliminar(Especialidad especialidad) {
 		mService.eliminar(especialidad.getIdEspecialidad());
-		this.listarEspecialidad();
+		this.listar();
 	}
 	
 	public Especialidad getEspecialidad() {
 		return especialidad;
 	}
 
-	public void setPsicologo(Psicologo psicologo) {
-		this.psicologo = psicologo;
-	}
+	
 	public void setEspecialidad(Especialidad especialidad) {
 		this.especialidad = especialidad;
 	}
