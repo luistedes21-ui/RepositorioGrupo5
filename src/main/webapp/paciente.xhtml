@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Pacientes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Paciente</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idPaciente" value="Cod-Paciente " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idPaciente"
+				styleClass="form-control" value="#{pacienteController.paciente.idPaciente}"
+				required="true" />
+				
+			<h:outputLabel for="nombrePaciente" value="Nombre: "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombrePaciente"
+				styleClass="form-control"
+				value="#{pacienteController.paciente.nombrePaciente}" maxlength="30"
+				required="true" />
+				
+				<h:outputLabel for="apellidoPaciente" value="Apellido: "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="apellidoPaciente"
+				styleClass="form-control"
+				value="#{pacienteController.paciente.apellidoPaciente}" maxlength="30"
+				required="true" />
+				
+
+				<h:outputLabel for="edadPaciente" value="Edad: " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="edadPaciente"
+				styleClass="form-control" value="#{pacienteController.paciente.edadPaciente}"
+				required="true" />
+				
+				
+				<h:outputLabel for="dniPaciente" value="Ingrese DNI: " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="dniPaciente"
+				styleClass="form-control" value="#{pacienteController.paciente.dniPaciente}"
+				required="true" />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{pacienteController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listPaciente?faces-redirect=true" />
+				
+			<p:commandButton value="Cancelar"
+				action="listPaciente?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
