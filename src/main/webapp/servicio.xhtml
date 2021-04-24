@@ -29,9 +29,16 @@
 				value="#{servicioController.servicio.nombreServicio}" maxlength="35"
 				required="true" />
 				
-
+<p:outputLabel for ="cboEspecialidad" value="Especialidad" />				
+				<p:selectOneMenu id="cboEspecialidad" value ="#{servicioController.servicio.especialidad}"
+			converter = "omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{servicioController.listaEspecialidades}" var ="d"
+			itemLabel="#{d.nombreEspecialidad}" itemValue="#{d}" />		
+			</p:selectOneMenu>
+			
+			
 			<p:commandButton value="Grabar"
-				actionListener="#{servicioController.insertar()}"
+				actionListener="#{servicioController.insertarServicio()}"
 				styleClass="btn btn-primary " update="@form"
 				action="listServicio?faces-redirect=true" />
 			<p:commandButton value="Cancelar"

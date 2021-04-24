@@ -11,6 +11,9 @@ import javax.inject.Named;
 
 import pe.g5.upc.entity.Servicio;
 import pe.g5.upc.service.iServicioService;
+import pe.g5.upc.entity.Especialidad;
+import pe.g5.upc.service.iEspecialidadService;
+
 
 @Named
 @RequestScoped
@@ -18,29 +21,47 @@ public class ServicioController implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private iServicioService mService;
+	private iServicioService sService;
+	
+	@Inject
+	private iEspecialidadService eService;
+	
+	private Especialidad especialidad;
 	private Servicio servicio;
+	
+	List<Especialidad>listaEspecialidades;
 	List<Servicio>listaServicios;
 	
 	@PostConstruct
 	public void init() {
+		servicio = new Servicio();
+		especialidad = new Especialidad();
+		this.listaEspecialidades = new ArrayList<Especialidad>();
 		this.listaServicios = new ArrayList<Servicio>();
-		this.servicio = new Servicio ();
-		this.listar();
+		this.listarServicio();
+		listarEspecialidad();
 	}
 	
 	public String nuevoServicio() {
 		this.setServicio(new Servicio());
 		return "servicio.xhtml";
 	}
+	public String nuevoEspecialidad() {
+		this.setEspecialidad(new Especialidad());
+		return "especialidad.xhtml";
+	}
 	
-	public void insertar() {
-		mService.insertar(servicio);
+	public void insertarServicio() {
+		sService.insertar(servicio);
 		limpiarServicio();
 	}
 	
-	public void listar() {
-		listaServicios = mService.listar();
+	public void listarServicio() {
+		listaServicios = sService.listar();													
+	}
+	
+	public void listarEspecialidad() {
+		listaEspecialidades = eService.listar()	;
 															
 	}
 	
@@ -48,9 +69,18 @@ public class ServicioController implements Serializable {
 		this.init();
 	}
 	public void eliminar(Servicio servicio) {
-		mService.eliminar(servicio.getIdServicio());
-		this.listar();
+		sService.eliminar(servicio.getIdServicio());
+		this.listarServicio();
 	}
+	
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
+	
+	public void setEspecialidad ( Especialidad especialidad) {
+		this.especialidad = especialidad;
+	}
+	
 	
 	public Servicio getServicio() {
 		return servicio;
@@ -66,6 +96,13 @@ public class ServicioController implements Serializable {
 
 	public void setListaServicios(List<Servicio> listaServicios) {
 		this.listaServicios = listaServicios;
+	}
+	public List<Especialidad> getListaEspecialidades() {
+		return listaEspecialidades;
+	}
+
+	public void setListaEspecialidades(List<Especialidad> listaEspecialidades) {
+		this.listaEspecialidades = listaEspecialidades;
 	}
 	
 }

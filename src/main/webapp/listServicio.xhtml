@@ -36,15 +36,16 @@
 								<h:outputText value="#{ser.idServicio}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{ser.nombreServicio}">
+							<p:column headerText="Nombre de Servicio" sortBy="#{ser.nombreServicio}">
 								<h:outputText value="#{ser.nombreServicio}" />
 							</p:column>
 							
-							
-							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listServicio" value="Eliminar"
-									actionListener="#{servicioController.eliminar(ser)}" />
+							<p:column headerText="Pertenece a:" sortBy="#{ser.especialidad.nombreEspecialidad}">
+								<h:outputText value="#{ser.especialidad.nombreEspecialidad}" />
 							</p:column>
+							
+							
+					
 
 						</p:dataTable>
 					</div>
