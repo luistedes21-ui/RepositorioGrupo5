@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Reserva de Citas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Reserva de Citas</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idReserva" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idReserva"
+				styleClass="form-control" value="#{reservaController.reserva.idReserva}"
+				required="true" />
+				
+			<h:outputLabel for="descripcionReserva" value="Descripcion de Reserva "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="descripcionReserva"
+				styleClass="form-control"
+				value="#{reservaController.reserva.descripcionReserva}" maxlength="35"
+				required="true" />
+				
+				<h:outputLabel for="fechaReserva" value="Fecha de Sesión "
+				styleClass="control-label" />
+				<p:calendar id="fechaReserva" pattern="dd/MM/yyyy"
+					value="#{reservaController.reserva.fechaReserva}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+					
+				
+				<p:outputLabel for ="cboPaciente" value="Paciente" />				
+				<p:selectOneMenu id="cboPaciente" value ="#{reservaController.reserva.paciente}"
+			converter = "omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{reservaController.listaPacientes}" var ="d"
+			itemLabel="#{d.apellidoPaciente}" itemValue="#{d}" />		
+			</p:selectOneMenu>
+			
+			<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
+				<p:selectOneMenu id="cboPsicologo" value ="#{reservaController.reserva.psicologo}"
+			converter = "omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d"
+			itemLabel="#{d.nombrePsicologo}" itemValue="#{d}" />		
+			</p:selectOneMenu>
+				
+
+			<p:commandButton value="Grabar"
+				actionListener="#{reservaController.insertarReserva()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listReserva?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listReserva?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

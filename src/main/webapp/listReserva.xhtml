@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+		Lista de Reservas
+	</ui:define>
+
+	<ui:define name="titleCont">
+		<span>Lista de Reservas</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+
+
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstReserva" var="rsv"
+							value="#{reservaController.listaReservas}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{rsv.idReserva}">
+								<h:outputText value="#{rsv.idReserva}" />
+							</p:column>
+							<p:column headerText="Paciente"
+								sortBy="#{rsv.paciente.apellidoPaciente}">
+								<h:outputText value="#{rsv.paciente.apellidoPaciente}" />
+							</p:column>
+							<p:column headerText="Psicologo"
+								sortBy="#{rsv.psicologo.nombrePsicologo}">
+								<h:outputText value="#{rsv.psicologo.nombrePsicologo}" />
+							</p:column>
+
+							<p:column headerText="Fecha" sortBy="#{rsv.fechaReserva}">
+								<h:outputText value="#{rsv.fechaReserva}" />
+							</p:column>
+
+
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listReserva" value="Eliminar"
+									actionListener="#{reservaController.eliminar(rsv)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height: 50px"></span>
+						<p:commandButton value="Agregar Nuevo"
+							action="#{reservaController.nuevoReserva()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+				</div>
+			</div>
+
+
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+	</ui:define>
+
+</ui:composition>
+</html>

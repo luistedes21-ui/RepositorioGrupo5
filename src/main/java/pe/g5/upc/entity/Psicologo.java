@@ -75,6 +75,46 @@ public class Psicologo implements Serializable{
 		this.especialidad = especialidad;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((CodigoCPSP == null) ? 0 : CodigoCPSP.hashCode());
+		result = prime * result + ((especialidad == null) ? 0 : especialidad.hashCode());
+		result = prime * result + idPsicologo;
+		result = prime * result + ((nombrePsicologo == null) ? 0 : nombrePsicologo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Psicologo other = (Psicologo) obj;
+		if (CodigoCPSP == null) {
+			if (other.CodigoCPSP != null)
+				return false;
+		} else if (!CodigoCPSP.equals(other.CodigoCPSP))
+			return false;
+		if (especialidad == null) {
+			if (other.especialidad != null)
+				return false;
+		} else if (!especialidad.equals(other.especialidad))
+			return false;
+		if (idPsicologo != other.idPsicologo)
+			return false;
+		if (nombrePsicologo == null) {
+			if (other.nombrePsicologo != null)
+				return false;
+		} else if (!nombrePsicologo.equals(other.nombrePsicologo))
+			return false;
+		return true;
+	}
+
 
 
 
