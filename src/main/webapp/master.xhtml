@@ -22,27 +22,32 @@
 	<h:outputStylesheet name="css/font_ico.css" />
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
+
+
 <h:body>
 	<nav class="navbar navbar-default navbar-fixed-top base_primary"
 		role="banner">
 		<div class="container">
 			<div class="navbar-header">
-				<button class="navbar-toggle" type="button" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
 				<a class="navbar-brand"
 					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
-					src="resources/img/logounidos.jpg" alt="" height="50" /></a>
-			</div>
-
+					src="resources/img/logounidos.jpg" alt="" height="110" /></a>	
+					
+				<nav class="nav" style="margin-top: 45px" >      <!-- margin cambia los margenes dentro del nav -->
+                <a class="nav-link" href="panel.xhtml" style="margin-right: 18px">Inicio </a>
+                <a class="nav-link" href="especialidad.xhtml" style="margin-right: 10px">Registro de Especialidades</a>
+                <a class="nav-link" href="servicio.xhtml" style="margin-right: 10px">Registro de Servicios</a>
+                <a class="nav-link" href="paciente.xhtml" style="margin-right: 10px">Registro de Pacientes</a>
+                <a class="nav-link" href="reserva.xhtml" style="margin-right: 10px">Registro de Citas</a>
+            </nav>
+			</div>				
 		</div>
 	</nav>
 	<!--main-->
+	
 	<div class="container base_fondo_fff"
-		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
+		style="min-height: 600px; border-radius: 4px; margin-top: 110px;">
+		
 		<div class="row">
 			<!--left-->
 			<div class="col-md-3" id="leftCol">
@@ -50,31 +55,9 @@
 					</ul>
 			</div>
 			<!--/left-->
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="panel.xhtml">Inicio</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="listPsicologo.xhtml">Registro de Psicologos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="listEspecialidad.xhtml">Registro de Especialidades</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="listServicio.xhtml">Registro de Servicios</a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="listPaciente.xhtml">Registro de Pacientes</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link" href="listReserva.xhtml">Registro de Citas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
+
 			<!--right-->
-			<div class="col-md-9" style="padding-right: 30px">
+			<div class="col-md-9" style="padding-right:30px">
 				<h2 id="sec0" class="title-style">
 					<ui:insert name="titleCont">Titulo</ui:insert>
 				</h2>
