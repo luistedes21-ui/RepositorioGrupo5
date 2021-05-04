@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "servicio")
@@ -20,8 +21,14 @@ public class Servicio implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idServicio;
 	
+	
 	@Column(name = "nombreServicio", nullable = false, length =30)
+	@Size(min = 5, max=15, message="El nombre del curso debe tener mínimo 1 caracter y máximo 40 caracteres")
 	private String nombreServicio;
+	
+	
+	@Column(name="costoServicio", nullable= false)
+	private int costoServicio;
 
 	@ManyToOne
 	@JoinColumn(name="idEspecialidad", nullable = false)
@@ -32,12 +39,25 @@ public class Servicio implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Servicio(int idServicio, String nombreServicio, Especialidad especialidad) {
+	
+
+
+
+
+	public Servicio(int idServicio,
+			@Size(min = 5, max = 15, message = "El nombre del curso debe tener mínimo 1 caracter y máximo 40 caracteres") String nombreServicio,
+			int costoServicio, Especialidad especialidad) {
 		super();
 		this.idServicio = idServicio;
 		this.nombreServicio = nombreServicio;
+		this.costoServicio = costoServicio;
 		this.especialidad = especialidad;
 	}
+
+
+
+
+
 
 	public int getIdServicio() {
 		return idServicio;
@@ -55,6 +75,14 @@ public class Servicio implements Serializable{
 		this.nombreServicio = nombreServicio;
 	}
 
+	public int getCostoServicio() {
+		return costoServicio;
+	}
+
+	public void setCostoServicio(int costoServicio) {
+		this.costoServicio = costoServicio;
+	}
+
 	public Especialidad getEspecialidad() {
 		return especialidad;
 	}
@@ -63,7 +91,6 @@ public class Servicio implements Serializable{
 		this.especialidad = especialidad;
 	}
 
-	
 
 	
 	

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.transaction.Transactional;
 
 import pe.g5.upc.dao.iPacienteDao;
 import pe.g5.upc.entity.Paciente;
@@ -33,6 +34,7 @@ public class PacienteServicioImpl implements iPacienteService,Serializable{
 	}
 
 	@Override
+	@Transactional
 	public void eliminar(int idPaciente) {
 		
 		mD.eliminar(idPaciente);

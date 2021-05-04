@@ -34,7 +34,8 @@
 				<p:calendar id="fechaReserva" pattern="dd/MM/yyyy"
 					value="#{reservaController.reserva.fechaReserva}" showOn="button"
 				timeZone="UTC" required="true">
-			</p:calendar>
+			</p:calendar> <p>   
+			</p>
 					
 				
 				<p:outputLabel for ="cboPaciente" value="Paciente" />				
@@ -42,14 +43,18 @@
 			converter = "omnifaces.SelectItemsConverter">
 			<f:selectItems value="#{reservaController.listaPacientes}" var ="d"
 			itemLabel="#{d.apellidoPaciente}" itemValue="#{d}" />		
-			</p:selectOneMenu>
+			</p:selectOneMenu><p>   
+			</p>
+					
 			
 			<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
 				<p:selectOneMenu id="cboPsicologo" value ="#{reservaController.reserva.psicologo}"
 			converter = "omnifaces.SelectItemsConverter">
 			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d"
 			itemLabel="#{d.nombrePsicologo}" itemValue="#{d}" />		
-			</p:selectOneMenu>
+			</p:selectOneMenu><p>   
+			</p>
+					
 				
 
 			<p:commandButton value="Grabar"
