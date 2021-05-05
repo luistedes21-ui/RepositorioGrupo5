@@ -46,6 +46,10 @@
 							<p:column headerText="Fecha" sortBy="#{rsv.fechaReserva}">
 								<h:outputText value="#{rsv.fechaReserva}" />
 							</p:column>
+							
+							<p:column headerText="Costo" sortBy="#{rsv.costoReserva}">
+								<h:outputText value="#{rsv.costoReserva}" />
+							</p:column>
 
 
 							<p:column headerText="Operación" exportable="false">
@@ -58,17 +62,9 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-sm-8 text-right">
-					<div class="form-group box-main-btn">
-						<span style="display: block; height: 50px"></span>
-						<p:commandButton value="Agregar Nuevo"
-							action="#{reservaController.nuevoReserva()}"
-							styleClass="btn btn-primary ajax=false" />
-					</div>
-				</div>
-			</div>
-
+			<p:commandButton value="Volver"
+				action="ModuloCitas?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
 
 
 		</h:form>

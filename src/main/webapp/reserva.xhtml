@@ -29,7 +29,7 @@
 				value="#{reservaController.reserva.descripcionReserva}" maxlength="35"
 				required="true" />
 				
-				<h:outputLabel for="fechaReserva" value="Fecha de Sesión "
+				<h:outputLabel for="fechaReserva" value="Fecha de Primer Contacto"
 				styleClass="control-label" />
 				<p:calendar id="fechaReserva" pattern="dd/MM/yyyy"
 					value="#{reservaController.reserva.fechaReserva}" showOn="button"
@@ -54,15 +54,24 @@
 			itemLabel="#{d.nombrePsicologo}" itemValue="#{d}" />		
 			</p:selectOneMenu><p>   
 			</p>
+			
+			
+			
+			<h:outputLabel for="costoReserva" value="Costo de Reserva "
+				styleClass="control-label" />
+			<p:inputText disabled="disabled" autocomplete="off" id="costoReserva"
+				
+				value="#{reservaController.reserva.costoReserva}" maxlength="35"
+				required="true"  />
 					
 				
 
 			<p:commandButton value="Grabar"
 				actionListener="#{reservaController.insertarReserva()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listReserva?faces-redirect=true" />
+				action="ModuloCitas?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listReserva?faces-redirect=true" immediate="true"
+				action="ModuloCitas?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

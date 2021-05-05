@@ -25,7 +25,13 @@ public class Reserva implements Serializable{
 	private String descripcionReserva;
 	
 	private Date fechaReserva;
+	
 
+	private int costoReserva = 20;
+	
+	
+	
+	
 	@ManyToOne
 	@JoinColumn(name="idPsicologo", nullable = false)
 	public Psicologo psicologo;
@@ -39,12 +45,13 @@ public class Reserva implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(int idReserva, String descripcionReserva, Date fechaReserva, Psicologo psicologo,
+	public Reserva(int idReserva, String descripcionReserva, Date fechaReserva, int costoReserva, Psicologo psicologo,
 			Paciente paciente) {
 		super();
 		this.idReserva = idReserva;
 		this.descripcionReserva = descripcionReserva;
 		this.fechaReserva = fechaReserva;
+		this.costoReserva = costoReserva;
 		this.psicologo = psicologo;
 		this.paciente = paciente;
 	}
@@ -73,6 +80,14 @@ public class Reserva implements Serializable{
 		this.fechaReserva = fechaReserva;
 	}
 
+	public int getCostoReserva() {
+		return costoReserva;
+	}
+
+	public void setCostoReserva(int costoReserva) {
+		this.costoReserva = costoReserva;
+	}
+
 	public Psicologo getPsicologo() {
 		return psicologo;
 	}
@@ -89,7 +104,7 @@ public class Reserva implements Serializable{
 		this.paciente = paciente;
 	}
 	
-	
+
 
 
 	
