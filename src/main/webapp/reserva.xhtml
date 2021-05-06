@@ -44,25 +44,29 @@
 			<f:selectItems value="#{reservaController.listaPacientes}" var ="d"
 			itemLabel="#{d.apellidoPaciente}" itemValue="#{d}" />		
 			</p:selectOneMenu><p>   
-			</p>
+			</p>S
 					
 			
 			<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
 				<p:selectOneMenu id="cboPsicologo" value ="#{reservaController.reserva.psicologo}"
-			converter = "omnifaces.SelectItemsConverter">
-			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d"
+			converter = "omnifaces.SelectItemsConverter" onchange="submit()">
+			<p:ajax listener="#{reservaController.handleChange}" />
+			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d" 
 			itemLabel="#{d.nombrePsicologo}" itemValue="#{d}" />		
+			</p:selectOneMenu><p>   
+			</p>
+			
+				<p:outputLabel for ="cboServicio" value="Servicio" />				
+				<p:selectOneMenu id="cboServicio" value ="#{reservaController.reserva.servicioReserva}"
+			converter = "omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{reservaController.listaServicios}" var ="d"
+			itemLabel="#{d.nombreServicio}" itemValue="#{d.nombreServicio}" />		
 			</p:selectOneMenu><p>   
 			</p>
 			
 			
 			
-			<h:outputLabel for="costoReserva" value="Costo de Reserva "
-				styleClass="control-label" />
-			<p:inputText disabled="disabled" autocomplete="off" id="costoReserva"
-				
-				value="#{reservaController.reserva.costoReserva}" maxlength="35"
-				required="true"  />
+		
 					
 				
 

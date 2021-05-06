@@ -30,7 +30,12 @@ public class ServicioServiceImpl implements iServicioService, Serializable {
 	public List<Servicio> listar() {
 		return mD.listar();
 	}
-
+	
+	@Override
+	public List<Servicio> listarPorEspecialidad(String nombreEspecialidad) {
+		return mD.listarPorEspecialidad(nombreEspecialidad);
+	}
+	
 	@Override
 	@Transactional
 	public void eliminar(int idServicio) {

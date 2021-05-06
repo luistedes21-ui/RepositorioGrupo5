@@ -8,7 +8,7 @@ public interface iServicioDao {
 	public void insertar(Servicio servicio);
 	public List<Servicio> listar();
 	public void eliminar (int idServicio);
-	
+	public List<Servicio>listarPorEspecialidad(String nombreEspecialidad);	
 	
 	
 }

@@ -44,6 +44,53 @@ public class Servicio implements Serializable{
 
 
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + costoServicio;
+		result = prime * result + ((especialidad == null) ? 0 : especialidad.hashCode());
+		result = prime * result + idServicio;
+		result = prime * result + ((nombreServicio == null) ? 0 : nombreServicio.hashCode());
+		return result;
+	}
+
+
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Servicio other = (Servicio) obj;
+		if (costoServicio != other.costoServicio)
+			return false;
+		if (especialidad == null) {
+			if (other.especialidad != null)
+				return false;
+		} else if (!especialidad.equals(other.especialidad))
+			return false;
+		if (idServicio != other.idServicio)
+			return false;
+		if (nombreServicio == null) {
+			if (other.nombreServicio != null)
+				return false;
+		} else if (!nombreServicio.equals(other.nombreServicio))
+			return false;
+		return true;
+	}
+
+
+
+
+
+
 	public Servicio(int idServicio,
 			@Size(min = 5, max = 15, message = "El nombre del curso debe tener mínimo 1 caracter y máximo 40 caracteres") String nombreServicio,
 			int costoServicio, Especialidad especialidad) {

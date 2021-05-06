@@ -13,17 +13,17 @@ import pe.g5.upc.dao.iReservaDao;
 import pe.g5.upc.entity.Reserva;
 
 public class ReservaDaoImpl implements iReservaDao, Serializable {
-	private static final long serialVersionUID=1L;
-	
+	private static final long serialVersionUID = 1L;
+
 	@PersistenceContext(unitName = "a")
 	private EntityManager em;
-	
+
 	@Transactional
 	@Override
 	public void insertar(Reserva reserva) {
 		em.persist(reserva);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Reserva> listar() {
@@ -38,6 +38,8 @@ public class ReservaDaoImpl implements iReservaDao, Serializable {
 		Reserva reserva = new Reserva();
 		reserva = em.getReference(Reserva.class, idReserva);
 		em.remove(reserva);
-		
+
 	}
+
+
 }
