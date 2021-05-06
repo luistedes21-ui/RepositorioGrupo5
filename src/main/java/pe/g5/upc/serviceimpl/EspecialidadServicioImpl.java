@@ -7,7 +7,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import javax.transaction.Transactional;
 
 import pe.g5.upc.dao.iEspecialidadDao;
 import pe.g5.upc.entity.Especialidad;
@@ -32,6 +32,7 @@ public class EspecialidadServicioImpl implements iEspecialidadService, Serializa
 	}
 
 	@Override
+	@Transactional
 	public void eliminar(int idEspecialidad) {
 		mD.eliminar(idEspecialidad);
 	}

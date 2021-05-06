@@ -44,6 +44,11 @@
 								<h:outputText value="#{ser.especialidad.nombreEspecialidad}" />
 							</p:column>
 							
+							<p:column headerText="Costo:" sortBy="#{ser.costoServicio}">
+								<h:outputText value="#{ser.costoServicio}" />
+							</p:column>
+							
+							
 							
 					
 
@@ -52,17 +57,9 @@
 				</div>				
 			</div>		
 			
-				<div class="row">
-				<div class="col-sm-8 text-right">
-					<div class="form-group box-main-btn">
-						<span style="display: block; height:50px"></span>
-						<p:commandButton value="Agregar Nuevo"						
-							action="#{servicioController.nuevoServicio()}"
-							styleClass="btn btn-primary ajax=false" />
-					</div>
-				</div>
-			</div>
-			
+			<p:commandButton value="Volver"
+				action="Registro?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
 			
 										
 		</h:form>

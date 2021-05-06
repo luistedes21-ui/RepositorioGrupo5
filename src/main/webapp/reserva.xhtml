@@ -29,12 +29,13 @@
 				value="#{reservaController.reserva.descripcionReserva}" maxlength="35"
 				required="true" />
 				
-				<h:outputLabel for="fechaReserva" value="Fecha de Sesión "
+				<h:outputLabel for="fechaReserva" value="Fecha de Primer Contacto"
 				styleClass="control-label" />
 				<p:calendar id="fechaReserva" pattern="dd/MM/yyyy"
 					value="#{reservaController.reserva.fechaReserva}" showOn="button"
 				timeZone="UTC" required="true">
-			</p:calendar>
+			</p:calendar> <p>   
+			</p>
 					
 				
 				<p:outputLabel for ="cboPaciente" value="Paciente" />				
@@ -42,22 +43,38 @@
 			converter = "omnifaces.SelectItemsConverter">
 			<f:selectItems value="#{reservaController.listaPacientes}" var ="d"
 			itemLabel="#{d.apellidoPaciente}" itemValue="#{d}" />		
-			</p:selectOneMenu>
+			</p:selectOneMenu><p>   
+			</p>S
+					
 			
-			<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
+	<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
 				<p:selectOneMenu id="cboPsicologo" value ="#{reservaController.reserva.psicologo}"
 			converter = "omnifaces.SelectItemsConverter">
-			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d"
+			<p:ajax listener="#{reservaController.handleChange}" update="cboServicio" />
+			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d" 
 			itemLabel="#{d.nombrePsicologo}" itemValue="#{d}" />		
-			</p:selectOneMenu>
+			</p:selectOneMenu><p>   
+			</p>
+			
+				<p:outputLabel for ="cboServicio" value="Servicio" />				
+				<p:selectOneMenu id="cboServicio" value ="#{reservaController.reserva.servicioReserva}"
+			converter = "omnifaces.SelectItemsConverter">
+			<f:selectItems value="#{reservaController.listaServicios}" var ="d"
+			itemLabel="#{d.nombreServicio}" itemValue="#{d.nombreServicio}" />		
+			</p:selectOneMenu><p>   
+			</p>
+			
+			
+		
+					
 				
 
 			<p:commandButton value="Grabar"
 				actionListener="#{reservaController.insertarReserva()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listReserva?faces-redirect=true" />
+				action="ModuloCitas?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listReserva?faces-redirect=true" immediate="true"
+				action="ModuloCitas?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

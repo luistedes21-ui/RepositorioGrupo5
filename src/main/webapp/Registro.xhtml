@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8" />
+	<title><ui:insert name="title"></ui:insert></title>
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link
+		href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed'
+		rel='stylesheet' type='text/css' />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="resources/img/favicon.ico" />
+		
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<h:outputStylesheet name="css/bootstrap.min.css" />
+	<h:outputStylesheet name="css/main_base.css" />
+	<h:outputStylesheet name="css/font_ico.css" />
+	<ui:insert name="headCont"></ui:insert>
+</h:head>
+
+
+<h:body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="master.xhtml"  style="color:white">PSICOUNIDOS</a>
+    </div>
+		</div>
+	</nav>
+	<!--main-->
+	
+	<div class="container base_fondo_fff"
+		style="min-height: 600px; border-radius: 4px; margin-top: 110px;">
+		
+		<div class="row">
+			<!--left-->
+			
+			<!--/left-->
+
+			<!--right-->
+			
+				<div class="col-md-9" style="padding-right:30px">
+				<h2 id="sec0" class="title-style">
+					<ui:insert name="titleCont">Especialidad</ui:insert>
+				</h2>
+				<ui:insert name="content">
+				
+				<a href="especialidad.xhtml" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Registrar Especialidad
+				 <span 	class="glyphicon glyphicon-plus"  ></span> </a>
+				<a href="listEspecialidad.xhtml" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">Lista Especialidades
+				 <span 	class="glyphicon glyphicon-eye-open"  ></span> </a>
+				</ui:insert>
+			</div>
+			
+			
+			
+			<div class="col-md-9" style="padding-right:30px">
+				<h2 id="sec0" class="title-style">
+					<ui:insert name="titleCont">Servicio</ui:insert>
+				</h2>
+				<ui:insert name="content">
+				
+				<a href="servicio.xhtml" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Registrar Servicio
+				 <span 	class="glyphicon glyphicon-plus"  ></span> </a>
+				<a href="listServicio.xhtml" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">Lista Servicios
+				 <span 	class="glyphicon glyphicon-eye-open"  ></span> </a>
+				</ui:insert>
+			</div>		
+								
+			<div class="col-md-9" style="padding-right:30px">
+				<h2 id="sec0" class="title-style">
+					<ui:insert name="titleCont">Psicólogo</ui:insert>
+				</h2>
+				<ui:insert name="content">
+				<a href="psicologo.xhtml" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Registrar Psicologo
+				 <span 	class="glyphicon glyphicon-plus"  ></span> </a>
+				<a href="listPsicologo.xhtml" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">Lista Psicologos
+				 <span 	class="glyphicon glyphicon-eye-open"  ></span> </a>
+				</ui:insert>
+			</div>
+			
+						
+			
+			<div class="col-md-9" style="padding-right:30px">
+				<h2 id="sec0" class="title-style">
+					<ui:insert name="titleCont">Paciente</ui:insert>
+				</h2>
+				<ui:insert name="content">
+				<a href="paciente.xhtml" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Registrar Paciente
+				 <span 	class="glyphicon-plus"  ></span> </a>
+				<a href="listPaciente.xhtml" class="btn btn-info btn-lg" tabindex="-1" role="button" aria-disabled="true">Lista Pacientes
+				 <span 	class="glyphicon glyphicon-eye-open"  ></span> </a><p>
+				 
+				 
+				 
+				 </p>
+				</ui:insert>
+			</div>									
+						
+			<!--/right-->
+		</div>
+		
+			<div class="col-xs-offset-9" style="padding-right: 30px">
+			<a href="panel.xhtml" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">Volver </a>		
+			</div>
+			
+		<!--/row-->
+	</div>
+	
+	<!--/container-->
+	<ui:insert name="footerCont"></ui:insert>
+</h:body>
+</html>
+

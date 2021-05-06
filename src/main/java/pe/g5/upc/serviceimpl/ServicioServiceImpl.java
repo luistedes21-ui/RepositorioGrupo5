@@ -7,7 +7,7 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import javax.transaction.Transactional;
 
 import pe.g5.upc.dao.iServicioDao;
 import pe.g5.upc.entity.Servicio;
@@ -30,8 +30,14 @@ public class ServicioServiceImpl implements iServicioService, Serializable {
 	public List<Servicio> listar() {
 		return mD.listar();
 	}
-
+	
 	@Override
+	public List<Servicio> listarPorEspecialidad(String nombreEspecialidad) {
+		return mD.listarPorEspecialidad(nombreEspecialidad);
+	}
+	
+	@Override
+	@Transactional
 	public void eliminar(int idServicio) {
 		mD.eliminar(idServicio);
 	}

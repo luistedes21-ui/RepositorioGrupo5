@@ -8,7 +8,6 @@ public interface iReservaDao {
 	public void insertar(Reserva reserva);
 	public List<Reserva> listar();
 	public void eliminar (int idReserva);
-	
-	
+
 	
 }
