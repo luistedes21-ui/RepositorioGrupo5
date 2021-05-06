@@ -63,14 +63,17 @@ public class ReservaController implements Serializable {
 		this.listarReserva();
 		listarPaciente();
 		listarPsicologo();
-		psicologo= this.listaPsicologos.get(2);
 		listarEspecialidad();
+		reserva.setPsicologo(listaPsicologos.get(0));
+		listarServicio();
 
 	}
 	
-	public void handleChange(){
-		   System.out.println("New value: " + psicologo.getNombrePsicologo());
-		}
+	public void handleChange() {
+		System.out.println("New value: " + reserva.getPsicologo().getNombrePsicologo());
+		this.listaServicios = new ArrayList<Servicio>();
+		listarServicio();
+	}
 	
 	
 	
@@ -128,7 +131,7 @@ public class ReservaController implements Serializable {
 	}
 
 	public void listarServicio() {
-		listaServicios = sService.listarPorEspecialidad(psicologo.getEspecialidad().getNombreEspecialidad());
+		listaServicios = sService.listarPorEspecialidad(reserva.getPsicologo().getEspecialidad().getNombreEspecialidad());
 	}
 
 	public void listarReserva() {

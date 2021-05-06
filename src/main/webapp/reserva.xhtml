@@ -47,10 +47,10 @@
 			</p>S
 					
 			
-			<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
+	<p:outputLabel for ="cboPsicologo" value="Psicologo" />				
 				<p:selectOneMenu id="cboPsicologo" value ="#{reservaController.reserva.psicologo}"
-			converter = "omnifaces.SelectItemsConverter" onchange="submit()">
-			<p:ajax listener="#{reservaController.handleChange}" />
+			converter = "omnifaces.SelectItemsConverter">
+			<p:ajax listener="#{reservaController.handleChange}" update="cboServicio" />
 			<f:selectItems value="#{reservaController.listaPsicologos}" var ="d" 
 			itemLabel="#{d.nombrePsicologo}" itemValue="#{d}" />		
 			</p:selectOneMenu><p>   
@@ -63,7 +63,6 @@
 			itemLabel="#{d.nombreServicio}" itemValue="#{d.nombreServicio}" />		
 			</p:selectOneMenu><p>   
 			</p>
-			
 			
 			
 		
