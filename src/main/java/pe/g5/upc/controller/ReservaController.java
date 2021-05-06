@@ -15,7 +15,8 @@ import pe.g5.upc.entity.Psicologo;
 import pe.g5.upc.service.iPsicologoService;
 import pe.g5.upc.entity.Paciente;
 import pe.g5.upc.service.iPacienteService;
-
+import pe.g5.upc.entity.Modalidad;
+import pe.g5.upc.entity.iModalidadService;
 
 @Named
 @RequestScoped
@@ -28,27 +29,33 @@ public class ReservaController implements Serializable {
 	private iPsicologoService pService;
 	@Inject
 	private iPacienteService pcService;
+	@Inject
+	private iModalidadService pcService;
 	
 	private Reserva reserva;
 	private Paciente paciente;
 	private Psicologo psicologo;
+	private Modalidad modalidad;
 	
 	List<Reserva>listaReservas;
 	List<Paciente>listaPacientes;
 	List<Psicologo>listaPsicologos;
+	List<Modalidad> listaModalidad;
 	
 	@PostConstruct
 	public void init() {
 		reserva= new Reserva();
 		paciente = new Paciente();
 		psicologo = new Psicologo(); 
+		modalidad = new Modalidad();
 		this.listaReservas = new ArrayList<Reserva>();
 		this.listaPacientes = new ArrayList<Paciente>();
 		this.listaPsicologos = new ArrayList<Psicologo>();
+		this.listaModalidad = new ArrayList<Modalidad>();
 		this.listarReserva();
 		listarPaciente();
 		listarPsicologo();
-		
+		listarModalidad();
 	}
 	
 	public String nuevoReserva() {
@@ -62,6 +69,10 @@ public class ReservaController implements Serializable {
 	public String nuevoPsicologo() {
 		this.setPsicologo(new Psicologo());
 		return "psicologo.xhtml";
+	}
+	public String nuevoModalidad() {
+		this.setModalidad(new Modalidad());
+		return "modalidad.xhtml";
 	}
 	
 	public void insertarReserva() {
@@ -79,6 +90,9 @@ public class ReservaController implements Serializable {
 	public void listarPsicologo() {
 		listaPsicologos = pService.listar();													
 	}
+	public void listarModalidad() {
+		listaModalidad = pService.listar();													
+	}
 	
 		
 	public void limpiarReserva() {
@@ -88,51 +102,70 @@ public class ReservaController implements Serializable {
 		rService.eliminar(reserva.getIdReserva());
 		this.listarReserva();
 	}
-	
+
 	public Reserva getReserva() {
 		return reserva;
-	}	
-	public void setReserva ( Reserva reserva) {
+	}
+
+	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
-	
-	
-	public Psicologo getPsicologo() {
-		return psicologo;
-	}
-	public void setPsicologo(Psicologo psicologo) {
-		this.psicologo = psicologo;
-	}
-	
-	
+
 	public Paciente getPaciente() {
 		return paciente;
 	}
+
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
 
-	
+	public Psicologo getPsicologo() {
+		return psicologo;
+	}
+
+	public void setPsicologo(Psicologo psicologo) {
+		this.psicologo = psicologo;
+	}
+
+	public Modalidad getModalidad() {
+		return modalidad;
+	}
+
+	public void setModalidad(Modalidad modalidad) {
+		this.modalidad = modalidad;
+	}
+
 	public List<Reserva> getListaReservas() {
 		return listaReservas;
 	}
+
 	public void setListaReservas(List<Reserva> listaReservas) {
 		this.listaReservas = listaReservas;
 	}
-	
+
 	public List<Paciente> getListaPacientes() {
 		return listaPacientes;
 	}
+
 	public void setListaPacientes(List<Paciente> listaPacientes) {
 		this.listaPacientes = listaPacientes;
 	}
-	
 
 	public List<Psicologo> getListaPsicologos() {
 		return listaPsicologos;
 	}
+
 	public void setListaPsicologos(List<Psicologo> listaPsicologos) {
 		this.listaPsicologos = listaPsicologos;
 	}
+
+	public List<Psicologo> getListaModalidad() {
+		return listaModalidad;
+	}
+
+	public void setListaModalidad(List<Psicologo> listaModalidad) {
+		this.listaModalidad = listaModalidad;
+	}
+	
 	
 }

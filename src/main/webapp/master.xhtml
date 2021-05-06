@@ -20,37 +20,39 @@
 	<h:outputStylesheet name="css/bootstrap.min.css" />
 	<h:outputStylesheet name="css/main_base.css" />
 	<h:outputStylesheet name="css/font_ico.css" />
+<!--  	así como aquí agregan css, nomás es uno que agrege los js?
+	aquí están las rutas de eso, solo agregas lo nuevos archivos
+	y luego ya puedes copiar y pegar del html y se verá igual -->
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
-
-
-<h:body>
+<!--   debes agregar el boostrap y el js en recursos. Luego vincular las  rutas -->
+<h:body style="background-color: lightblue;">
 	<nav class="navbar navbar-default navbar-fixed-top base_primary"
 		role="banner">
-		<div class="container">
+		<div class="container ">
 			<div class="navbar-header">
-				<a class="navbar-brand"
+				<a class="navbar-brand" href="master.xhtml"
 					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
 					src="resources/img/logounidos.jpg" alt="" height="110" /></a>	
 					
 				<nav class="nav" style="margin-top: 45px" >      <!-- margin cambia los margenes dentro del nav -->
-                <a class="nav-link" href="#" style="margin-right: 10px">Inicio</a> 
-                <a class="nav-link" href="panel.xhtml" style="margin-right: 18px">Link </a>
-                <a class="nav-link" href="#" style="margin-right: 10px">Registro</a>
-                <a class="nav-link" href="#" style="margin-right: 10px">Registro de Especialidades</a>
-                <a class="nav-link" href="#" style="margin-right: 10px">Registro de Servicios</a>
-                <a class="nav-link" href="#" style="margin-right: 10px">Registro de Pacientes</a>
-                <a class="nav-link" href="#" style="margin-right: 10px">Registro de Citas</a>
+                <a class="nav-link" href="psicologo.xhtml" style="margin-right: 10px">Registrar Psicologo</a>
+                
+                <a class="nav-link" href="especialidad.xhtml" style="margin-right: 10px">Registrar Especialidades</a>
+                <a class="nav-link" href="servicio.xhtml" style="margin-right: 10px">Registrar Servicios brindados</a>
+                <a class="nav-link" href="paciente.xhtml" style="margin-right: 10px">Registrar Pacientes</a>
+                <a class="nav-link" href="reserva.xhtml" style="margin-right: 10px">Reserva de Citas</a>
+
             </nav>
 			</div>				
 		</div>
 	</nav>
 	<!--main-->
-	
-	<div class="container base_fondo_fff"
-		style="min-height: 600px; border-radius: 4px; margin-top: 110px;">
-		
-		<div class="row">
+
+	<div class="container"
+		style="min-height: 600px; border-radius: 4px; margin-top: 110px; background-color:white;">
+		<!-- con style="background-color: white;" cambias el color del contenedor -->
+		<div class="row" >
 			<!--left-->
 			<div class="col-md-3" id="leftCol">
 				<ul class="nav nav-stacked" id="sidebar">
@@ -59,14 +61,23 @@
 			<!--/left-->
 
 			<!--right-->
-			<div class="col-md-9" style="padding-right:30px">
+			<div class="col-md-9" style="padding-center:30px">
 				<h2 id="sec0" class="title-style">
-					<ui:insert name="titleCont">Titulo</ui:insert>
+					<ui:insert name="titleCont"> Queremos que cada día te sientas bien </ui:insert>
 				</h2>
+				
 				<!-- seccion para el contenido -->
 				<ui:insert name="content">
+				<h:form>
+			<p align="center" class="title-style">PSICOUNIDOS: Acompañamiento Psicológico a tu medida</p>
+			<div align="center">
+				<h:graphicImage value="/resources/img/imagen1.jpg" height="50%" width="50%">
+				</h:graphicImage>
+			</div>
+		</h:form>
 				</ui:insert>
 			</div>
+			
 			<!--/right-->
 		</div>
 		<!--/row-->
